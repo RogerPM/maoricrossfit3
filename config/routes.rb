@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :users
-  resources :sales
   resources :products
   resources :clients
   # The priority is based upon order of creation: first created -> highest priority.
