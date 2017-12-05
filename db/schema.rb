@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205163256) do
+ActiveRecord::Schema.define(version: 20171205164441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(version: 20171205163256) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
+  create_table "header_classes", force: :cascade do |t|
+    t.date     "date"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.integer  "maximum_capacity"
+    t.integer  "registered"
+    t.integer  "service_id"
+    t.integer  "shcedule_id"
+    t.string   "teacher"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "header_classes", ["service_id"], name: "index_header_classes_on_service_id", using: :btree
+  add_index "header_classes", ["shcedule_id"], name: "index_header_classes_on_shcedule_id", using: :btree
 
   create_table "memberships", force: :cascade do |t|
     t.string   "rate_name"
@@ -172,6 +188,8 @@ ActiveRecord::Schema.define(version: 20171205163256) do
   end
 
   add_foreign_key "checks", "sales"
+  add_foreign_key "header_classes", "services"
+  add_foreign_key "header_classes", "shcedules"
   add_foreign_key "memberships", "services"
   add_foreign_key "product_quantities", "products"
   add_foreign_key "product_quantities", "sales"

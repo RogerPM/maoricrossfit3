@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :detail_classes
   resources :header_classes
   resources :shcedules
   resources :shcedules
