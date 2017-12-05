@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   resources :checks
-  resources :detail_classes
-  resources :header_classes
   resources :subscriptions
   resources :memberships
   resources :product_quantities
