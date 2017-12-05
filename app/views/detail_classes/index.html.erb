@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Detail Classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Subscription</th>
+      <th>State</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detail_classes.each do |detail_class| %>
+      <tr>
+        <td><%= detail_class.client %></td>
+        <td><%= detail_class.subscription %></td>
+        <td><%= detail_class.state %></td>
+        <td><%= detail_class.comment %></td>
+        <td><%= link_to 'Show', detail_class %></td>
+        <td><%= link_to 'Edit', edit_detail_class_path(detail_class) %></td>
+        <td><%= link_to 'Destroy', detail_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detail class', new_detail_class_path %>
