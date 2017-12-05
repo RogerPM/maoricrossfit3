@@ -170,7 +170,7 @@ RailsAdmin.config do |config|
   end
 
 
-    config.model Product do
+  config.model Product do
     create do
       configure :product_quantities do
         hide
@@ -207,8 +207,7 @@ RailsAdmin.config do |config|
         hide
       end
     end
-    list do
-          
+    list do    
       configure :subscriptions do
         hide
       end
@@ -224,6 +223,10 @@ RailsAdmin.config do |config|
   end
 
   config.model Membership do
+    visible false
+  end
+
+  config.model Product_quantity do
     visible false
   end
 
