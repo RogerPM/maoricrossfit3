@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @header_class.date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @header_class.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @header_class.end_time %>
+</p>
+
+<p>
+  <strong>Maximum capacity:</strong>
+  <%= @header_class.maximum_capacity %>
+</p>
+
+<p>
+  <strong>Registered:</strong>
+  <%= @header_class.registered %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @header_class.service %>
+</p>
+
+<p>
+  <strong>Shcedules:</strong>
+  <%= @header_class.shcedules %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @header_class.teacher %>
+</p>
+
+<%= link_to 'Edit', edit_header_class_path(@header_class) %> |
+<%= link_to 'Back', header_classes_path %>
