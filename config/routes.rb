@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :checks
+  resources :users
+  resources :services
   resources :shcedules
   resources :sales
   resources :providers
