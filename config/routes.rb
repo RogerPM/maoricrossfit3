@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :shcedules
+  resources :shcedules
   resources :checks
   resources :subscriptions
   resources :memberships
