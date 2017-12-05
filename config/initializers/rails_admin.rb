@@ -111,6 +111,44 @@ RailsAdmin.config do |config|
   end
 
 
+  config.model Client do
+    create do
+      configure :subscriptions do
+        hide
+      end
+      configure :sales do
+        hide
+      end
+      configure :detail_classes do
+        hide
+      end
+      
+    end
+    edit do
+      configure :subscriptions do
+        hide
+      end
+      configure :sales do
+        hide
+      end
+      configure :detail_classes do
+        hide
+      end
+      
+    end
+    list do
+      configure :subscriptions do
+        hide
+      end
+      configure :sales do
+        hide
+      end
+      configure :detail_classes do
+        hide
+      end
+
+    end
+  end
 
 
   config.actions do
