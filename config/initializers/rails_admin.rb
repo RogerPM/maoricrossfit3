@@ -158,7 +158,7 @@ RailsAdmin.config do |config|
       end     
     end
     edit do
-      configure :subscriptionsu do
+      configure :subscriptions do
         hide
       end 
     end
