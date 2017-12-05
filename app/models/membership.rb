@@ -1,4 +1,4 @@
 class Membership < ActiveRecord::Base
   belongs_to :service
-  has_many :subscription
+  has_many :subscriptions
 end

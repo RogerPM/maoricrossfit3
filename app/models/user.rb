@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-    has_many :schedules
+    has_many :shcedules
 	has_many :sales
 
 	def position_enum
