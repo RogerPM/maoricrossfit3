@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205164441) do
+ActiveRecord::Schema.define(version: 20171205164543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(version: 20171205164441) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
+  create_table "detail_classes", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "header_class_id"
+    t.integer  "subscription_id"
+    t.string   "state"
+    t.text     "comment"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "detail_classes", ["client_id"], name: "index_detail_classes_on_client_id", using: :btree
+  add_index "detail_classes", ["header_class_id"], name: "index_detail_classes_on_header_class_id", using: :btree
+  add_index "detail_classes", ["subscription_id"], name: "index_detail_classes_on_subscription_id", using: :btree
 
   create_table "header_classes", force: :cascade do |t|
     t.date     "date"
@@ -188,6 +202,9 @@ ActiveRecord::Schema.define(version: 20171205164441) do
   end
 
   add_foreign_key "checks", "sales"
+  add_foreign_key "detail_classes", "clients"
+  add_foreign_key "detail_classes", "header_classes"
+  add_foreign_key "detail_classes", "subscriptions"
   add_foreign_key "header_classes", "services"
   add_foreign_key "header_classes", "shcedules"
   add_foreign_key "memberships", "services"

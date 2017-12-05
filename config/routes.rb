@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/', as: 'rails_admin'
   resources :detail_classes
   resources :header_classes
   resources :shcedules
