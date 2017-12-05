@@ -23,7 +23,12 @@ default: &default
 
 development:
   <<: *default
-  database: maoricrossfit3_development
+  host: ec2-54-235-86-244.compute-1.amazonaws.com
+  port: 5432
+  database: dd8fo2ka5ntp4k
+  username: ropciuclumlndy
+  password: 45fc367a6b716ccc5c79b8fc84a3c0d709e2b74f444902018064d02dd61ea9ab
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +62,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: maoricrossfit3_test
+  host: ec2-54-235-86-244.compute-1.amazonaws.com
+  port: 5432
+  database: dd8fo2ka5ntp4k
+  username: ropciuclumlndy
+  password: 45fc367a6b716ccc5c79b8fc84a3c0d709e2b74f444902018064d02dd61ea9ab
+
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +90,9 @@ test:
 #
 production:
   <<: *default
-  database: maoricrossfit3_production
-  username: maoricrossfit3
-  password: <%= ENV['MAORICROSSFIT3_DATABASE_PASSWORD'] %>
+  host: ec2-54-235-86-244.compute-1.amazonaws.com
+  port: 5432
+  database: dd8fo2ka5ntp4k
+  username: ropciuclumlndy
+  password: 45fc367a6b716ccc5c79b8fc84a3c0d709e2b74f444902018064d02dd61ea9ab
+
