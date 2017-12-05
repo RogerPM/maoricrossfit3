@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Header Classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Maximum capacity</th>
+      <th>Registered</th>
+      <th>Service</th>
+      <th>Shcedule</th>
+      <th>Teacher</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @header_classes.each do |header_class| %>
+      <tr>
+        <td><%= header_class.date %></td>
+        <td><%= header_class.start_time %></td>
+        <td><%= header_class.end_time %></td>
+        <td><%= header_class.maximum_capacity %></td>
+        <td><%= header_class.registered %></td>
+        <td><%= header_class.service %></td>
+        <td><%= header_class.shcedule %></td>
+        <td><%= header_class.teacher %></td>
+        <td><%= link_to 'Show', header_class %></td>
+        <td><%= link_to 'Edit', edit_header_class_path(header_class) %></td>
+        <td><%= link_to 'Destroy', header_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Header class', new_header_class_path %>
