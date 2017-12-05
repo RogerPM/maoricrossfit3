@@ -150,6 +150,32 @@ RailsAdmin.config do |config|
     end
   end
 
+    config.model Product do
+    create do
+      configure :product_quantities do
+        hide
+      end      
+    end
+    edit do
+      configure :product_quantities do
+        hide
+      end 
+      
+    end
+    list do
+      configure :product_quantities do
+        hide
+      end 
+    end
+  end
+
+    config.model Detailclass do
+    visible false
+  end
+
+  config.model Membership do
+    visible false
+  end
 
   config.actions do
     dashboard                     # mandatory
