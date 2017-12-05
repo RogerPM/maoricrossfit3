@@ -189,6 +189,36 @@ RailsAdmin.config do |config|
     end
   end
 
+
+  config.model Service do
+    create do
+      configure :subscriptions do
+        hide
+      end
+      configure :header_classes do
+        hide
+      end
+    end
+    edit do   
+      configure :subscriptions do
+        hide
+      end
+      configure :header_classes do
+        hide
+      end
+    end
+    list do
+          
+      configure :subscriptions do
+        hide
+      end
+      configure :header_classes do
+        hide
+      end
+    end
+
+  end
+
   config.model Detail_class do
     visible false
   end
