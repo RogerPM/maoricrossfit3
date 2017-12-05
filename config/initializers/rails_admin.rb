@@ -189,7 +189,7 @@ RailsAdmin.config do |config|
     end
   end
 
-    config.model Detailclass do
+  config.model Detail_class do
     visible false
   end
 
