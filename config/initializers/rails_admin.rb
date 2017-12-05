@@ -150,6 +150,26 @@ RailsAdmin.config do |config|
     end
   end
 
+
+     config.model Membership do
+    create do
+      configure :subscriptions do
+        hide
+      end     
+    end
+    edit do
+      configure :subscriptionsu do
+        hide
+      end 
+    end
+    list do
+      configure :subscriptions do
+        hide
+      end 
+    end
+  end
+
+
     config.model Product do
     create do
       configure :product_quantities do
