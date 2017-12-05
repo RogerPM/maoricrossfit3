@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205163004) do
+ActiveRecord::Schema.define(version: 20171205163256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "checks", force: :cascade do |t|
+    t.integer  "num"
+    t.string   "owner"
+    t.string   "bank"
+    t.decimal  "value"
+    t.integer  "sale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "checks", ["sale_id"], name: "index_checks_on_sale_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +43,32 @@ ActiveRecord::Schema.define(version: 20171205163004) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
+  create_table "memberships", force: :cascade do |t|
+    t.string   "rate_name"
+    t.integer  "sessions"
+    t.integer  "service_id"
+    t.decimal  "value"
+    t.decimal  "discount"
+    t.decimal  "total"
+    t.boolean  "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "memberships", ["service_id"], name: "index_memberships_on_service_id", using: :btree
+
+  create_table "product_quantities", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.decimal  "subtotal"
+    t.integer  "sale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_quantities", ["product_id"], name: "index_product_quantities_on_product_id", using: :btree
+  add_index "product_quantities", ["sale_id"], name: "index_product_quantities_on_sale_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.integer  "name"
@@ -99,6 +137,25 @@ ActiveRecord::Schema.define(version: 20171205163004) do
   add_index "shcedules", ["service_id"], name: "index_shcedules_on_service_id", using: :btree
   add_index "shcedules", ["user_id"], name: "index_shcedules_on_user_id", using: :btree
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "client_id"
+    t.date     "start_time"
+    t.date     "end_time"
+    t.integer  "service_id"
+    t.integer  "membership_id"
+    t.integer  "total_entries"
+    t.integer  "current_entries"
+    t.string   "state"
+    t.integer  "sale_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "subscriptions", ["client_id"], name: "index_subscriptions_on_client_id", using: :btree
+  add_index "subscriptions", ["membership_id"], name: "index_subscriptions_on_membership_id", using: :btree
+  add_index "subscriptions", ["sale_id"], name: "index_subscriptions_on_sale_id", using: :btree
+  add_index "subscriptions", ["service_id"], name: "index_subscriptions_on_service_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "last_name"
@@ -114,9 +171,17 @@ ActiveRecord::Schema.define(version: 20171205163004) do
     t.datetime "updated_at",          null: false
   end
 
+  add_foreign_key "checks", "sales"
+  add_foreign_key "memberships", "services"
+  add_foreign_key "product_quantities", "products"
+  add_foreign_key "product_quantities", "sales"
   add_foreign_key "products", "providers"
   add_foreign_key "sales", "clients"
   add_foreign_key "sales", "users"
   add_foreign_key "shcedules", "services"
   add_foreign_key "shcedules", "users"
+  add_foreign_key "subscriptions", "clients"
+  add_foreign_key "subscriptions", "memberships"
+  add_foreign_key "subscriptions", "sales"
+  add_foreign_key "subscriptions", "services"
 end

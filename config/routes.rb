@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shcedules
   resources :checks
   resources :subscriptions
   resources :memberships
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
   resources :products
   resources :providers
   resources :sales
-  resources :shcedules
   resources :services
   resources :users
   resources :products
